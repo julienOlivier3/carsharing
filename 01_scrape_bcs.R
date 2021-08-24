@@ -213,7 +213,12 @@ error_districts = c()
 district_autocomplete <- ""
 
 
-# Loop
+# Loop including error handling (errors happen because of stale elements)
+#-----------------------------------------------------------------------------
+# Selenium message:The element reference of <input id="edit-street-address" class="form-text" name="street_address" type="text"> 
+# is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+# For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+#-----------------------------------------------------------------------------
 for (district in districts$district_clean[1:100]){
   
   tryCatch(
@@ -238,27 +243,13 @@ for (district in districts$district_clean[1:100]){
     # Condition handler part: define how you want conditions to be handled #
     ########################################################################
     
-    # Handler when a warning occurs:
-    #warning = function(cond) {
-    #  message(paste("The following district caused a warning:", district))
-    #  message("Here's the original warning message:")
-    #  message(paste(cond, '\n'))
-      
-      # Choose a return value when such a type of condition occurs
-    #  temp <- scrape_bcs(district, district_autocomplete)
-    #  district_autocomplete <- unique(temp$district_autocomplete)
-    #  carsharing_locations <- carsharing_locations %>% 
-    #    add_row(temp)
-      
-    #},
-    
     # Handler when an error occurs:
     error = function(cond) {
       message(paste("The following district caused an error:", district))
       message("Here's the original error message:")
       message(paste(cond, '\n'))
       
-      # Choose a return value when such a type of condition occurs
+      # Add districts for which scraping has not been succesful to list
       error_districts <<- c(error_districts, district)
       
     },
