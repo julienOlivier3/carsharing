@@ -1,0 +1,185 @@
+district	district_autocomplete	provider	provider_id	location	location_id	distance_from_center	scale_info
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Senefelder Str. 35B - Hinterhof	125131322	1800	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Ostendstraße 105	125132373	1900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Fangelsbachstr. 28b	125132218	1900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Ostendplatz	125130075	1900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Killesberg / Brenzkirche	125132634	1900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Gablenberg / Klingenstr.	125131314	2000	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Augustenstraße 60	125133183	2000	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	Flinkster - Mein Carsharing	120430000	Schlossstraße	120430103	1600	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Rosenbergstraße 52	125132476	1600	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Friedrich-Eugens-Gymnasium	125132860	1600	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Schloß-/Johannesstr.	125130206	1700	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hölderlinplatz - Silberburgstr.23	125132632	1700	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Kübler Areal	125134963	1800	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Gablenberg / Schmalzmarkt	125132227	1800	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Senefelderstr. 52 - Post	125130919	1800	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Gablenberger Hauptstraße 32	125133258	1800	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Lerchenstraße 73	125132401	1800	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Schloßstraße 60	125132386	1400	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Paulinenstraße	125134154	1400	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Herzogstr. (Finanzamt)	125130925	1500	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Schlosserstr. 9	125132618	1500	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Neckarstraße 180	125132171	1500	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Milchhof (Eckartstraße)	125133537	1500	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Österreichischer Platz	125130722	1500	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Silberburg- / Ludwigstraße	125132497	1500	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Wunnensteinstraße 27	125131419	1600	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Russische Kirche	125131925	1600	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Heidehofstraße	125130928	1000	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Stöckach	125130867	1200	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Bubenbad	125131751	1200	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hohenheimer Str. (Bethesda Krankenhaus)	125132215	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Azenbergstraße	125131436	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Höscheleweg 4	125133247	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hauptstätter Str. (Wilhelmsplatz)	125134171	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Haußmannstr. / Rotenbergstr.	125134223	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Dobelstr. (Nagelstr.)	125130661	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hoppenlau-Schule	125130166	1300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hauptbahnhof / i-Punkt	125130073	0	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hauptbahnhof / Kronenstraße 15	125131434	300	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Hauptbahnhof / Lautenschlagerstr. 20	125132154	400	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	Flinkster - Mein Carsharing	120430000	Hbf Stuttgart	120430099	400	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Urbanstraße 49	125131420	400	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Charlottenplatz	125134921	900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Heilmannstr. (Neckartor)	125132248	900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Olgaeck	125130074	900	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Gymnasiumstraße	125134152	1000	1000 m
+70173  STUTTGART	70173 Stuttgart, Germany	stadtmobil Stuttgart	125130000	Türlenstr.	125131287	1000	1000 m
+71134  AIDLINGEN	71134 Aidlingen, Germany	NA	NA	NA	NA	NA	1000 m
+71155  ALTDORF	71155 Altdorf, Germany	NA	NA	NA	NA	NA	1000 m
+71032  BOEBLINGEN	71032 Böblingen, Germany	NA	NA	NA	NA	NA	1000 m
+71149  BONDORF	71149 Bondorf, Germany	NA	NA	NA	NA	NA	1000 m
+75392  DECKENPFRONN	75392 Deckenpfronn, Germany	NA	NA	NA	NA	NA	1000 m
+71139  EHNINGEN	71139 Ehningen, Germany	NA	NA	NA	NA	NA	1000 m
+71116  GAERTRINGEN	71116 Gärtringen, Germany	stadtmobil Stuttgart	125130000	Gärtringen Bahnhof	125133781	400	1000 m
+71126  GAEUFELDEN	71126 Gäufelden, Germany	NA	NA	NA	NA	NA	1000 m
+71120  GRAFENAU	71120 Grafenau, Germany	NA	NA	NA	NA	NA	1000 m
+71083  HERRENBERG	71083 Herrenberg, Germany	stadtmobil Stuttgart	125130000	Hasenplatz	125133174	900	1000 m
+71083  HERRENBERG	71083 Herrenberg, Germany	stadtmobil Stuttgart	125130000	Herrenberg Bahnhof (P+R-Anlage Süd)	125132585	1400	1000 m
+71157  HILDRIZHAUSEN	71157 Hildrizhausen, Germany	NA	NA	NA	NA	NA	1000 m
+71088  HOLZGERLINGEN	71088 Holzgerlingen, Germany	NA	NA	NA	NA	NA	1000 m
+71131  JETTINGEN	71131 Jettingen, Germany	NA	NA	NA	NA	NA	1000 m
+71229  LEONBERG	71229 Leonberg, Germany	stadtmobil Stuttgart	125130000	Leonberg Bahnhof	125133929	400	1000 m
+71106  MAGSTADT	71106 Magstadt, Germany	NA	NA	NA	NA	NA	1000 m
+71159  MOETZINGEN	71159 Mötzingen, Germany	NA	NA	NA	NA	NA	1000 m
+71154  NUFRINGEN	71154 Nufringen, Germany	NA	NA	NA	NA	NA	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Goethestraße	120670020	400	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Bahnhof	120670070	400	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Wiesenstraße	120670030	500	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Rutesheimer Straße	120670010	600	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Südbahnhof	120670040	900	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Am Schlaggraben	120670050	900	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Renningen Merowinger Weg	120670060	900	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Malmsheim Strohgäustraße	120670130	1200	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Malmsheim Nelkenstraße	120670120	1300	1000 m
+71272  RENNINGEN	71272 Renningen, Germany	CarSharing Renningen	120670000	Malmsheim Amselweg	120670110	1700	1000 m
+71277  RUTESHEIM	71277 Rutesheim, Germany	NA	NA	NA	NA	NA	1000 m
+71101  SCHOENAICH	71101 Schönaich, Germany	NA	NA	NA	NA	NA	1000 m
+71063  SINDELFINGEN	71063 Sindelfingen, Germany	stadtmobil Stuttgart	125130000	Sindelfingen Bahnhof	125130119	1000	1000 m
+71144  STEINENBRONN	71144 Steinenbronn, Germany	NA	NA	NA	NA	NA	1000 m
+71111  WALDENBUCH	71111 Waldenbuch, Germany	stadtmobil Stuttgart	125130000	Ritter-Sport (Verwaltung)	125132370	1100	1000 m
+71263  WEIL DER STADT	71263 Weil der Stadt, Germany	CarSharing Weil der Stadt	180010000	Weil der Stadt Franz-Hammer-Straße	180010160	900	1000 m
+71263  WEIL DER STADT	71263 Weil der Stadt, Germany	CarSharing Weil der Stadt	180010000	Zeppelinstraße	180010070	1100	1000 m
+71263  WEIL DER STADT	71263 Weil der Stadt, Germany	CarSharing Weil der Stadt	180010000	Weil der Stadt Zeppelinstraße	180010150	1100	1000 m
+71263  WEIL DER STADT	71263 Weil der Stadt, Germany	CarSharing Weil der Stadt	180010000	Weil der Stadt Schießrainweg	180010140	1400	1000 m
+71263  WEIL DER STADT	71263 Weil der Stadt, Germany	CarSharing Weil der Stadt	180010000	Merklingen Katharinenstraße	180010170	1800	1000 m
+71263  WEIL DER STADT	71263 Weil der Stadt, Germany	CarSharing Weil der Stadt	180010000	Gartenstraße	180010080	1800	1000 m
+71093  WEIL IM SCHOENBUCH	71093 Weil im Schönbuch, Germany	NA	NA	NA	NA	NA	1000 m
+71287  WEISSACH	71287 Weissach, Germany	NA	NA	NA	NA	NA	1000 m
+72631  AICHTAL	72631 Aichtal, Germany	NA	NA	NA	NA	NA	1000 m
+73773  AICHWALD	73773 Aichwald, Germany	NA	NA	NA	NA	NA	1000 m
+73776  ALTBACH	73776 Altbach, Germany	NA	NA	NA	NA	NA	1000 m
+72655  ALTDORF	72655 Altdorf, Germany	NA	NA	NA	NA	NA	1000 m
+72657  ALTENRIET	72657 Altenriet, Germany	NA	NA	NA	NA	NA	1000 m
+73666  BALTMANNSWEILER	73666 Baltmannsweiler, Germany	NA	NA	NA	NA	NA	1000 m
+72658  BEMPFLINGEN	72658 Bempflingen, Germany	NA	NA	NA	NA	NA	1000 m
+72660  BEUREN	72660 Beuren, Germany	NA	NA	NA	NA	NA	1000 m
+73266  BISSINGEN AN DER TECK	73266 Bissingen, Germany	NA	NA	NA	NA	NA	1000 m
+73779  DEIZISAU	73779 Deizisau, Germany	stadtmobil Stuttgart	125130000	Plochingen Bahnhof	125134471	1900	1000 m
+73770  DENKENDORF	73770 Denkendorf, Germany	NA	NA	NA	NA	NA	1000 m
+73265  DETTINGEN UNTER TECK	73265 Dettingen unter Teck, Germany	NA	NA	NA	NA	NA	1000 m
+73268  ERKENBRECHTSWEILER	73268 Erkenbrechtsweiler, Germany	NA	NA	NA	NA	NA	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Palmscher Park	125132155	1300	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Oberesslingen Bahnhof	125133108	1700	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Diakonissenweg	125132156	1900	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Vogelsang (Pliensauturm)	125132162	100	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Ottilienplatz	125133794	400	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Schelztorstraße	125134523	500	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Kleiner Markt	125132161	600	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Charlottenplatz	125133197	700	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Katharinenstaffel	125132371	700	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Uhlandstraße	125133417	700	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Urbanstraße	125134524	800	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Heilbronner Str.	125132159	1000	1000 m
+73728  ESSLINGEN AM NECKAR	73728 Esslingen, Germany	stadtmobil Stuttgart	125130000	Weilstraße	125132160	1200	1000 m
+70794  FILDERSTADT	70794 Filderstadt, Germany	stadtmobil Stuttgart	125130000	Filderstadt Bahnhof	125132517	1700	1000 m
+72636  FRICKENHAUSEN	72636 Frickenhausen, Germany	NA	NA	NA	NA	NA	1000 m
+72663  GROSSBETTLINGEN	72663 Großbettlingen, Germany	NA	NA	NA	NA	NA	1000 m
+73269  HOCHDORF	73269 Hochdorf, Germany	NA	NA	NA	NA	NA	1000 m
+73271  HOLZMADEN	73271 Holzmaden, Germany	NA	NA	NA	NA	NA	1000 m
+73230  KIRCHHEIM UNTER TECK	73230 Kirchheim unter Teck, Germany	stadtmobil Stuttgart	125130000	Rossmarkt	125131468	700	1000 m
+73230  KIRCHHEIM UNTER TECK	73230 Kirchheim unter Teck, Germany	stadtmobil Stuttgart	125130000	Kirchheim Bahnhof	125131854	1200	1000 m
+73257  KOENGEN	73257 Köngen, Germany	NA	NA	NA	NA	NA	1000 m
+72664  KOHLBERG	72664 Kohlberg, Germany	NA	NA	NA	NA	NA	1000 m
+70771  LEINFELDEN-ECHTERDINGEN	70771 Leinfelden-Echterdingen, Germany	stadtmobil Stuttgart	125130000	Leinfelden Kirchstraße	125132315	500	1000 m
+70771  LEINFELDEN-ECHTERDINGEN	70771 Leinfelden-Echterdingen, Germany	stadtmobil Stuttgart	125130000	Leinfelden Bahnhof	125130843	900	1000 m
+70771  LEINFELDEN-ECHTERDINGEN	70771 Leinfelden-Echterdingen, Germany	stadtmobil Stuttgart	125130000	Maiergasse (Zehntscheuer)	125132918	2000	1000 m
+73252  LENNINGEN	73252 Lenningen, Germany	NA	NA	NA	NA	NA	1000 m
+73669  LICHTENWALD	73669 Lichtenwald, Germany	NA	NA	NA	NA	NA	1000 m
+72666  NECKARTAILFINGEN	72666 Neckartailfingen, Germany	NA	NA	NA	NA	NA	1000 m
+72654  NECKARTENZLINGEN	72654 Neckartenzlingen, Germany	NA	NA	NA	NA	NA	1000 m
+73272  NEIDLINGEN	73272 Neidlingen, Germany	NA	NA	NA	NA	NA	1000 m
+72639  NEUFFEN	72639 Neuffen, Germany	NA	NA	NA	NA	NA	1000 m
+73765  NEUHAUSEN AUF DEN FILDERN	73765 Neuhausen auf den Fildern, Germany	NA	NA	NA	NA	NA	1000 m
+73274  NOTZINGEN	73274 Notzingen, Germany	NA	NA	NA	NA	NA	1000 m
+72622  NUERTINGEN	72622 Nürtingen, Germany	NA	NA	NA	NA	NA	1000 m
+72644  OBERBOIHINGEN	72644 Oberboihingen, Germany	NA	NA	NA	NA	NA	1000 m
+73275  OHMDEN	73275 Ohmden, Germany	NA	NA	NA	NA	NA	1000 m
+73760  OSTFILDERN	73760 Ostfildern, Germany	stadtmobil Stuttgart	125130000	Edith-Stein-Straße	125132167	1000	1000 m
+73760  OSTFILDERN	73760 Ostfildern, Germany	stadtmobil Stuttgart	125130000	Niemöllerstraße	125133092	1100	1000 m
+73760  OSTFILDERN	73760 Ostfildern, Germany	stadtmobil Stuttgart	125130000	Parksiedlung	125132955	1500	1000 m
+73760  OSTFILDERN	73760 Ostfildern, Germany	stadtmobil Stuttgart	125130000	Stadtbahn / Im Flieder	125132166	1700	1000 m
+73760  OSTFILDERN	73760 Ostfildern, Germany	stadtmobil Stuttgart	125130000	Grabenäckerstraße	125133096	1900	1000 m
+73277  OWEN	73277 Owen, Germany	NA	NA	NA	NA	NA	1000 m
+73207  PLOCHINGEN	73207 Plochingen, Germany	stadtmobil Stuttgart	125130000	Plochingen Bahnhof	125134471	1400	1000 m
+73207  PLOCHINGEN	73207 Plochingen, Germany	stadtmobil Stuttgart	125130000	Siegenbergplatz	125132169	1800	1000 m
+73262  REICHENBACH AN DER FILS	73262 Reichenbach an der Fils, Germany	stadtmobil Stuttgart	125130000	Siegenbergplatz	125132169	1400	1000 m
+72667  SCHLAITDORF	72667 Schlaitdorf, Germany	NA	NA	NA	NA	NA	1000 m
+72669  UNTERENSINGEN	72669 Unterensingen, Germany	NA	NA	NA	NA	NA	1000 m
+73235  WEILHEIM AN DER TECK	73235 Weilheim an der Teck, Germany	NA	NA	NA	NA	NA	1000 m
+73240  WENDLINGEN AM NECKAR	73240 Wendlingen am Neckar, Germany	Car Sharing Wendlingen	125970000	Christofstraße 6	125970002	100	1000 m
+73240  WENDLINGEN AM NECKAR	73240 Wendlingen am Neckar, Germany	Car Sharing Wendlingen	125970000	Stadtmitte	125970003	900	1000 m
+73240  WENDLINGEN AM NECKAR	73240 Wendlingen am Neckar, Germany	Car Sharing Wendlingen	125970000	Burggartenstraße 57	125970004	1300	1000 m
+73240  WENDLINGEN AM NECKAR	73240 Wendlingen am Neckar, Germany	Car Sharing Wendlingen	125970000	Bahnhof	125970001	1400	1000 m
+73249  WERNAU (NECKAR)	73249 Wernau, Germany	NA	NA	NA	NA	NA	1000 m
+72649  WOLFSCHLUGEN	72649 Wolfschlugen, Germany	NA	NA	NA	NA	NA	1000 m
+73099  ADELBERG	73099 Adelberg, Germany	NA	NA	NA	NA	NA	1000 m
+73101  AICHELBERG	73101 Aichelberg, Germany	NA	NA	NA	NA	NA	1000 m
+73095  ALBERSHAUSEN	73095 Albershausen, Germany	NA	NA	NA	NA	NA	1000 m
+73342  BAD DITZENBACH	73342 Bad Ditzenbach, Germany	NA	NA	NA	NA	NA	1000 m
+73337  BAD UEBERKINGEN	73337 Bad Überkingen, Germany	NA	NA	NA	NA	NA	1000 m
+73102  BIRENBACH	73102 Birenbach, Germany	NA	NA	NA	NA	NA	1000 m
+73312  BOEHMENKIRCH	73312 Geislingen, Germany	NA	NA	NA	NA	NA	1000 m
+73104  BOERTLINGEN	73104 Börtlingen, Germany	NA	NA	NA	NA	NA	1000 m
+73087  BOLL	73087 Boll, Germany	NA	NA	NA	NA	NA	1000 m
+73312  DEGGINGEN	Deggingen, Germany	NA	NA	NA	NA	NA	1000 m
+73072  DONZDORF	73072 Donzdorf, Germany	NA	NA	NA	NA	NA	1000 m
+73345  DRACKENSTEIN	73345 Hohenstadt, Germany	NA	NA	NA	NA	NA	1000 m
+73105  DUERNAU	73105 Dürnau, Germany	NA	NA	NA	NA	NA	1000 m
+73061  EBERSBACH AN DER FILS	73061 Ebersbach an der Fils, Germany	NA	NA	NA	NA	NA	1000 m
+73054  EISLINGEN/FILS	73054 Eislingen, Germany	NA	NA	NA	NA	NA	1000 m
+73107  ESCHENBACH	73107 Eschenbach, Germany	NA	NA	NA	NA	NA	1000 m
+73108  GAMMELSHAUSEN	73108 Gammelshausen, Germany	NA	NA	NA	NA	NA	1000 m
+73312  GEISLINGEN A.D.STEIGE	73312 Geislingen, Germany	NA	NA	NA	NA	NA	1000 m
+73333  GINGEN AN DER FILS	73333 Gingen an der Fils, Germany	NA	NA	NA	NA	NA	1000 m
+73033  GOEPPINGEN	73033 Göppingen, Germany	NA	NA	NA	NA	NA	1000 m
+73344  GRUIBINGEN	73344 Gruibingen, Germany	NA	NA	NA	NA	NA	1000 m
+73110  HATTENHOFEN	73110 Hattenhofen, Germany	NA	NA	NA	NA	NA	1000 m
+73092  HEININGEN	73092 Heiningen, Germany	NA	NA	NA	NA	NA	1000 m
+73345  HOHENSTADT	73345 Hohenstadt, Germany	NA	NA	NA	NA	NA	1000 m
+73329  KUCHEN	73329 Kuchen, Germany	NA	NA	NA	NA	NA	1000 m
+73111  LAUTERSTEIN	73111 Lauterstein, Germany	NA	NA	NA	NA	NA	1000 m
+73347  MUEHLHAUSEN IM TAELE	73347 Mühlhausen im Täle, Germany	NA	NA	NA	NA	NA	1000 m
+73113  OTTENBACH	73113 Ottenbach, Germany	NA	NA	NA	NA	NA	1000 m
+73098  RECHBERGHAUSEN	73098 Rechberghausen, Germany	NA	NA	NA	NA	NA	1000 m

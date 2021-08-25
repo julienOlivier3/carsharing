@@ -209,7 +209,7 @@ scrape_bcs <- function(district, district_autocomplete=""){
 }
 
 # Test
-scrape_bcs(district = "Tübingen") -> temp1
+#df_test <- scrape_bcs(district = "Tübingen") 
 
 
 # Loop over districts -----------------------------------------------------
@@ -234,6 +234,8 @@ district_autocomplete <- ""
 # For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 #-----------------------------------------------------------------------------
 for (district in districts$district_clean[1:100]){
+  
+  
   
   tryCatch(
     
@@ -284,23 +286,22 @@ for (district in districts$district_clean[1:100]){
 }
 
 
-# Work Bench --------------------------------------------------------------
+# Do some minor data cleaning before saving
+carsharing_locations %>% rename(c("location" = "standort", 
+                                  "provider" = "anbieter", 
+                                  "distance_from_center" = "entfernung", 
+                                  "location_id" = "standord_id", 
+                                  "provider_id" = "anbieter_id")) %>%           # Rename German column names to English equivalents
+  select(district, district_autocomplete, provider, provider_id, location,      # Reorder columns
+         location_id, distance_from_center, scale_info) %>%                     
+  mutate(provider_id = str_remove(provider_id, "/anbieter/")) %>%               # Remove unnecessary characters from provider_id
+  mutate(location_id = str_remove(location_id, "/standort/")) %>%               # Remove unnecessary characters from location_id
+  mutate(distance_from_center =                                                 # Turn information how far shared cars are located from city center from string into double (in meters)
+           as.numeric(str_replace(
+             str_remove(distance_from_center, " km"),
+             ",", "."))*1000) %>% 
+  write_delim(file = "01_Data//03_Carsharing_Locations//scraping_sample.txt", 
+              delim = '\t')
+  
 
-field <- remDr$client$findElement(using = "css selector", value = ".show-result-list")
-field$getElementAttribute("innerHTML")
-field$clickElement()
-field$executeAsyncScriptScript("$('.show-result-list').click()")
-field$executeScript("$('.show-result-list').click()")
-field$getElementAttribute("innerHTML")
-remDr$client$executeScript(script = "function() {
-  resultList.slideToggle('slow');
-
-  if (flagShowList) {
-    flagShowList = false;
-    button.removeClass('active');
-  } else {
-    flagShowList = true;
-    button.addClass('active');
-  }
-
-}", args = field)
+         

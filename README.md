@@ -5,6 +5,7 @@ In this project, I intend to analyze how the existence of a carsharing service i
 
 
 To-Do:
-- find a way to handle errors due to stale elements in Selenium.
-- contact the guys at the Federal Motor Transport Authority and check whether they provide data on the number of **newly registered** and **deregistered** cars also on the district (German: Gemeinde) level. So far, I could only find the **stock** of cars at this level.
-- Use the Mannheim Enterprise Panel (MUP) to find out when (which year) the regional carsharing providers entered into the market.
+- [x] Find a way to handle errors due to stale elements in Selenium. -> Solved for now by adding additonal sleep times after executing elements with Selenium.
+- [ ] Contact the guys at the Federal Motor Transport Authority and check whether they provide data on the number of **newly registered** and **deregistered** cars also on the district (German: Gemeinde) level. So far, I could only find the **stock** of cars at this level.
+- [ ] Use the Mannheim Enterprise Panel (MUP) to find out when (which year) the regional carsharing providers entered into the market.
+- [ ] Get demographic information (population, trail station exists, if exists size of trail station, ...) for districts.
