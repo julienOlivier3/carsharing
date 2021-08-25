@@ -9,6 +9,31 @@ library(rlist)
 source("02_get_districts.R", verbose = FALSE)
 
 
+# Initialize Selenium server ----------------------------------------------
+remDr <- rsDriver(
+  port = sample(x = 1:1000, size = 1),
+  browser = "firefox",
+  verbose = FALSE, 
+  chromever = "88.0.4324.27"
+)
+
+# Define landing page
+bcs_landing <- 'https://carsharing.de/cs-standorte'
+
+# Navigate to landing page
+remDr$client$navigate(bcs_landing)
+
+# Wait until page has been loaded
+currentURL <- NULL
+while(is.null(currentURL)){
+  Sys.sleep(3) # sleep for a second before letting the while loop continue iterating
+  currentURL <- tryCatch({str_detect(remDr$client$getCurrentUrl()[[1]], bcs_landing)},
+                         error = function(e){NULL})
+  # while loop runs until site has been loaded
+}
+
+
+
 # Define scraping functions -----------------------------------------------
 
 scrape_singletab <- function(html_table){
@@ -54,9 +79,11 @@ scrape_bcs <- function(district, district_autocomplete=""){
   
   # Clear search field 
   search_field$clearElement()
+  Sys.sleep(1) # sleep for a second
   
   # Paste district name into search field and execute
   search_field$sendKeysToElement(list(district, key="enter"))
+  Sys.sleep(1) # sleep for a second
   
   # Wait until page has been re-loaded
   currentValue <- NULL
@@ -83,35 +110,37 @@ scrape_bcs <- function(district, district_autocomplete=""){
   carsharing_info <- parsed_html %>% 
     html_nodes('table') 
   
-  # Get number of tables with carsharing locations
-  carsharing_exits <- length(carsharing_info)
-  
-  # If there are no carsharing offers in the district return an empty df
-  if (carsharing_exits==0){
+  # If there are no carsharing offerings in the district return an empty df
+  if (length(carsharing_info)==0){
     carsharing_tab <- tibble("standort"=NA, "anbieter"=NA, "entfernung"=NA, "standord_id"=NA, "anbieter_id"=NA)
   }
   
   # If there are carsharing offerings in the district, they are either listed
-  # (a) in one table (only few offerings available) or
-  # (b) listed across several tables (many offerings)
+  # (a) in one table (only <= 10 available) or
+  # (b) listed across several tables (many offerings, > 10)
   else{
-
-    # If many carsharing offers exist, they are listed in several tables which need to which all need to be called separately
+    
+    # If many carsharing offers exist, they are listed in several tables which all need to be activated separately by clicking through the table slider
     several_tabs <- parsed_html %>% html_nodes("[title='Zur letzten Seite']")
     # If only one table exists, scrape the table
     if (length(several_tabs)==0){
       carsharing_tab <- scrape_singletab(carsharing_info[[1]])
     }
-      
+    
     # If several tables exist, we need some additional handling
     else{
       
-      #warning("Several tables exist")
-      # Find the "last page/table" button and execute it
+      # Activate the table interface so the table slider becomes clickable
+      activate_field <- remDr$client$findElement(using = "css selector", value = ".show-result-list")
+      activate_field$clickElement()
+      Sys.sleep(1) # sleep for a second
+      
+      # Find the "last page/table" button and click it
       lastpage_field <- remDr$client$findElement(using = "xpath", value = "//li[@class='pager__item pager__item--last']")
       lastpage_field$clickElement()
+      Sys.sleep(1) # sleep for a second
       
-      # Find the "current page/table" button get the number of tables information 
+      # Find the "current page/table" button to get the overall number of tables 
       currentpage_field <- remDr$client$findElement(using = "xpath", value = "//li[@class='pager__item pager__item--current']")
       n_tabs <- as.numeric(currentpage_field$getElementAttribute("innerHTML")[[1]])
       
@@ -124,8 +153,17 @@ scrape_bcs <- function(district, district_autocomplete=""){
       
       # Then scrape the tables from the last to the first one
       for (tab in n_tabs:1){
+        
+        # Click on previous table 
+        if (tab<n_tabs){ 
+          previouspage_field <- remDr$client$findElement(using = "xpath", value = "//li[@class='pager__item pager__item--previous']")
+          previouspage_field$clickElement()
+          Sys.sleep(1) # sleep for a second
+          }
+        
         # Parse updated html code
         parsed_html <- read_html(remDr$client$getPageSource()[[1]])
+        Sys.sleep(1) # sleep for a second
         
         # Get table(s) with carsharing offerings
         carsharing_info <- parsed_html %>% 
@@ -140,7 +178,7 @@ scrape_bcs <- function(district, district_autocomplete=""){
       }
       
     }
-
+    
   }
   
   # Get additional metadata:
@@ -171,31 +209,7 @@ scrape_bcs <- function(district, district_autocomplete=""){
 }
 
 # Test
-#scrape_bcs(district = "Tübingen")
-
-
-# Initialize Selenium server ----------------------------------------------
-remDr <- rsDriver(
-  port = sample(x = 1:1000, size = 1),
-  browser = "firefox",
-  verbose = FALSE, 
-  chromever = "88.0.4324.27"
-)
-
-# Define landing page
-bcs_landing <- 'https://carsharing.de/cs-standorte'
-
-# Navigate to landing page
-remDr$client$navigate(bcs_landing)
-
-# Wait until page has been loaded
-currentURL <- NULL
-while(is.null(currentURL)){
-  Sys.sleep(3) # sleep for a second before letting the while loop continue iterating
-  currentURL <- tryCatch({str_detect(remDr$client$getCurrentUrl()[[1]], bcs_landing)},
-                         error = function(e){NULL})
-  # while loop runs until site has been loaded
-}
+scrape_bcs(district = "Tübingen") -> temp1
 
 
 # Loop over districts -----------------------------------------------------
@@ -249,7 +263,7 @@ for (district in districts$district_clean[1:100]){
       message("Here's the original error message:")
       message(paste(cond, '\n'))
       
-      # Add districts for which scraping has not been succesful to list
+      # Add districts for which scraping has not been successful to list
       error_districts <<- c(error_districts, district)
       
     },
@@ -268,3 +282,25 @@ for (district in districts$district_clean[1:100]){
   
   
 }
+
+
+# Work Bench --------------------------------------------------------------
+
+field <- remDr$client$findElement(using = "css selector", value = ".show-result-list")
+field$getElementAttribute("innerHTML")
+field$clickElement()
+field$executeAsyncScriptScript("$('.show-result-list').click()")
+field$executeScript("$('.show-result-list').click()")
+field$getElementAttribute("innerHTML")
+remDr$client$executeScript(script = "function() {
+  resultList.slideToggle('slow');
+
+  if (flagShowList) {
+    flagShowList = false;
+    button.removeClass('active');
+  } else {
+    flagShowList = true;
+    button.addClass('active');
+  }
+
+}", args = field)
