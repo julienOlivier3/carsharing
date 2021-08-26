@@ -14,5 +14,6 @@ districts <- districts %>%
   select(district_clean)
 
 
-districts %>% 
-  filter(str_detect(district_clean, "\\b0"))
+
+
+  
