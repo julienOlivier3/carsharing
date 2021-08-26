@@ -12,3 +12,6 @@ To-Do:
 - [ ] Contact the guys at the Federal Motor Transport Authority and check whether they provide data on the number of **newly registered** and **deregistered** cars also on the district (German: Gemeinde) level. So far, I could only find the **stock** of cars at this level.
 - [ ] Use the Mannheim Enterprise Panel (MUP) to find out when (which year) the regional carsharing providers entered into the market.
 - [ ] Get demographic information (population, trail station exists, if exists size of trail station, ...) for districts.
+
+Presentation:
+Find a short presentation of the project idea [here](https://raw.githack.com/julienOlivier3/carsharing/main/03_Presentation/short_presentation.html)
