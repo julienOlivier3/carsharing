@@ -14,4 +14,5 @@ To-Do:
 - [ ] Get demographic information (population, trail station exists, if exists size of trail station, ...) for districts.
 
 Presentation:
-Find a short presentation of the project idea [here](https://raw.githack.com/julienOlivier3/carsharing/main/03_Presentation/short_presentation.html)
+
+Find a short presentation of the project idea [here](https://raw.githack.com/julienOlivier3/carsharing/main/03_Presentation/short_presentation.html).

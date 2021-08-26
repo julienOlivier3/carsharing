@@ -2,7 +2,7 @@ source("02_Code/01_scraping_setup.R", verbose = FALSE)
 
 districts <- c(
   "Bamberg", # the most beautiful city in Germany
-  "Tübingen",# my home - nice, too
+  "Tübingen",# my home town - nice, too
   "Mannheim" # weird city in Germany
   )
 
