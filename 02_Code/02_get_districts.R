@@ -1,6 +1,5 @@
-library(tidyverse)
-library(readxl)
-library(janitor)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, read_xl, janitor)
 
 
 districts <- readxl::read_excel("01_Data\\02_Bestand\\fz3_2021.xlsx", sheet = "FZ 3.1", skip = 8) %>% 

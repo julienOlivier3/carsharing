@@ -1,12 +1,6 @@
 # Setup -------------------------------------------------------------------
-rm(list = ls())
-library(tidyverse)
-library(rvest)
-library(RSelenium)
-library(janitor)
-library(rlist)
-
-
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, rvest, RSelenium, janitor, rlist)
 
 
 # Initialize Selenium server ----------------------------------------------
