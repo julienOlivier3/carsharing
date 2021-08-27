@@ -17,3 +17,4 @@ To-Do:
 Presentation:
 
 Find a short presentation of the project idea [here](https://raw.githack.com/julienOlivier3/carsharing/main/03_Presentation/short_presentation.html).
+
