@@ -2,65 +2,14 @@
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, rvest, RSelenium, janitor, rlist)
 
-
-# Initialize Selenium server ----------------------------------------------
-remDr <- rsDriver(
-  port = sample(x = 1:1000, size = 1),
-  browser = "firefox",
-  verbose = FALSE, 
-  chromever = "88.0.4324.27"
-)
-
-# Define landing page
-bcs_landing <- 'https://carsharing.de/cs-standorte'
-
-# Navigate to landing page
-remDr$client$navigate(bcs_landing)
-
-# Wait until page has been loaded
-currentURL <- NULL
-while(is.null(currentURL)){
-  Sys.sleep(3) # sleep for a second before letting the while loop continue iterating
-  currentURL <- tryCatch({str_detect(remDr$client$getCurrentUrl()[[1]], bcs_landing)},
-                         error = function(e){NULL})
-  # while loop runs until site has been loaded
-}
+# Load scrape_singletab() function
+source("02_Code/01.2_inner_scraper.R", verbose = FALSE)
 
 
-
-# Define scraping functions -----------------------------------------------
-
-scrape_singletab <- function(html_table){
-  # Extract main table information
-  carsharing_tab <- html_table %>% 
-    html_table() %>% 
-    clean_names()
-  
-  # Extract additional meta information (unique location and company IDs)
-  # included in tables <a> tags as "href"
-  carsharing_meta <- html_table %>% 
-    html_nodes("a") %>% 
-    html_attr("href") %>% 
-    as_tibble()
-  
-  location_meta <- carsharing_meta %>% 
-    filter(str_detect(value, "standort")) %>% 
-    rename(c("standord_id" = "value"))
-  
-  company_meta <- carsharing_meta %>% 
-    filter(str_detect(value, "anbieter")) %>% 
-    rename(c("anbieter_id" = "value"))
-  
-  # Append the meta information to the main table
-  carsharing_tab <- carsharing_tab %>% 
-    add_column(location_meta) %>% 
-    add_column(company_meta) 
-  
-  return(carsharing_tab)
-  
-}
-
-scrape_bcs <- function(district, district_autocomplete=""){
+# Define crawler ----------------------------------------------------------
+## Outer crawler
+# Function which which does all the clicking and execution of web elements (using Selenium) to show the car sharing locations of a desired region
+crawl_singleregion <- function(district, district_autocomplete=""){
   
   # Find search field on the landing page in order to insert the district where carsharing offers shall be searched for
   search_field <- NULL
@@ -153,7 +102,7 @@ scrape_bcs <- function(district, district_autocomplete=""){
           previouspage_field <- remDr$client$findElement(using = "xpath", value = "//li[@class='pager__item pager__item--previous']")
           previouspage_field$clickElement()
           Sys.sleep(1) # sleep for a second
-          }
+        }
         
         # Parse updated html code
         parsed_html <- read_html(remDr$client$getPageSource()[[1]])
@@ -201,11 +150,3 @@ scrape_bcs <- function(district, district_autocomplete=""){
   
   
 }
-
-# Test
-#df_test <- scrape_bcs(district = "Tübingen") 
-
-
-  
-
-         

@@ -1,11 +1,12 @@
-source("02_Code/01_scraping_setup.R", verbose = FALSE)
+source("02_Code/01.1_start_selenium.R", verbose = FALSE)
+source("02_Code/01.3_outer_crawler.R", verbose = FALSE)
 
 districts <- c(
-  "Bamberg", # the most beautiful city in Germany
-  "Tübingen",# my home town - nice, too
-  "Mannheim" # weird city in Germany
+  "Bamberg",  # the most beautiful city in Germany
+  "Tübingen", # my home town - nice, too
+  "Mannheim"  # well, another city in Germany
   )
 
-scrape_bcs(district = districts[1])
+crawl_singleregion(district = districts[1])
 
-lapply(districts, function(district) scrape_bcs(district))
+purrr::walk(districts, function(district) crawl_singleregion(district) %>% print(n=3))

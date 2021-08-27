@@ -1,8 +1,10 @@
-source("02_Code/01_scraping_setup.R", verbose = FALSE)
+source("02_Code/01.1_start_selenium.R", verbose = FALSE)
+source("02_Code/01.3_outer_crawler.R", verbose = FALSE)
 source("02_Code/02_get_districts.R", verbose = FALSE)
 
 
-# Instantiate empty objects
+## Instantiate empty objects ...
+# ... for scraping results
 carsharing_locations <- tibble(district = character(),
                                standort = character(), 
                                anbieter = character(), 
@@ -11,18 +13,28 @@ carsharing_locations <- tibble(district = character(),
                                anbieter_id = character(),
                                district_autocomplete = character(), 
                                scale_info = character())
+
+# ... for districts where crawler run into an error
 error_districts = c()
+
+# ... for a helper object required for the subsequent loop
 district_autocomplete <- ""
 
+# Iterator object for showing crawling progress 
+id <- 0
 
-# Loop including error handling (errors happen because of stale elements)
+# Create vector of districts
+districts <- districts$district_clean
+n_districts <- length(districts)
+
+# Loop including error handling (errors may happen because of stale elements)
 #-----------------------------------------------------------------------------
-# Selenium message:The element reference of <input id="edit-street-address" class="form-text" name="street_address" type="text"> 
-# is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
-# For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-#-----------------------------------------------------------------------------
-for (district in districts$district_clean[1:100]){
+for (district in districts){
   
+  # Add simple progress information
+  id = id + 1
+  if(id%%100==0)
+    cat("Scraping progress:", round(id/n_districts, digits = 3)*100, "%")
   
   
   tryCatch(
@@ -36,7 +48,7 @@ for (district in districts$district_clean[1:100]){
       # If you want to use more than one R expression in the "try part" 
       # then you'll have to use curly brackets. 
       # Otherwise, just write the single expression you want to try and 
-      temp <- scrape_bcs(district, district_autocomplete)
+      temp <- crawl_singleregion(district, district_autocomplete)
       district_autocomplete <- unique(temp$district_autocomplete)
       carsharing_locations <- carsharing_locations %>% 
         add_row(temp)

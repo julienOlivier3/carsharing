@@ -1,5 +1,5 @@
 ---
-title: "Substitutional effects of regional carsharing offerings"
+title: "Do regional carsharing offerings reduce private vehicle ownership?"
 subtitle: "<html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html><br>"
 #abstract: "A research idea"
 author: "Julian Dörr"
@@ -18,15 +18,16 @@ output:
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
 style_mono_light(
-  #link_color = "red",
-  #title_slide_background_color = "red",
   base_color = "#1c5253",
-  header_font_google = google_font("Josefin Sans", "200"),
-  text_font_google   = google_font("Montserrat", "200", "200i"),
+  link_color = "#EB811B",
+  #header_font_google = google_font("Josefin Sans", "200"),
+  #text_font_google   = google_font("Montserrat", "200", "200i"),
   code_font_google   = google_font("Fira Mono"),
   extra_css = list(
-    ".title-slide h3" = list("font-size" = "medium")
-  )
+    ".title-slide h3" = list("font-size" = "medium"),
+    ".title-slide h1" = list("font-size" = "40px")
+  ),
+  outfile = "03_Presentation/xaringan-themer.css"
 )
 ```
 
@@ -73,8 +74,8 @@ library(janitor)
 
 #### Motivation
 
-- Personally started to use cars haring offerings extensively this year
-- Observe car sharing providers extending their fleets
+- Personally started to use carsharing offerings extensively this year
+- Observe carsharing providers extending their fleets
 
 --
 
@@ -83,7 +84,7 @@ library(janitor)
 
 #### Research question
 
-> *"Do regional 'Mobility as a Service' offerings substitute individual transport?"*
+> *"Do regional 'Mobility as a Service' offerings substitute private transport?"*
 
 --
 
@@ -97,12 +98,12 @@ Number of newly registered cars by [Federal Motor Transport Authority](https://w
 
 ```{r kba, warning=FALSE, message=FALSE}
 # Read newly registered cars for year 2020. Data available from 2006 on -> Panel!
-new_cars <- readxl::read_excel("01_Data\\02_Bestand\\fz3_2021.xlsx", sheet = "FZ 3.1", skip = 8, na = c('.')) %>% 
+new_cars <- readxl::read_excel("01_Data/02_Bestand/fz3_2021.xlsx", sheet = "FZ 3.1", skip = 8, na = c('.')) %>% 
   clean_names() %>% 
-  select(plz_gemeinde, insgesamt_5, darunter_gewerbliche_halter) %>% 
-  filter(str_detect(plz_gemeinde, pattern = "\\d{5}")) %>% 
-  mutate(plz_gemeinde = str_remove(plz_gemeinde, pattern = "\\,.*")) %>% 
-  rename(c("region" = "plz_gemeinde", "number_cars" = "insgesamt_5", "number_cars_commercial" = "darunter_gewerbliche_halter")) 
+  select(region = plz_gemeinde, number_cars = insgesamt_5, number_cars_commercial = darunter_gewerbliche_halter) %>% 
+  filter(str_detect(region, pattern = "\\d{5}")) %>% 
+  mutate(region = str_remove(region, pattern = "\\,.*"))
+  
 new_cars %>% 
   print(n=5)
 ```
@@ -111,10 +112,11 @@ new_cars %>%
 
 ## Data (2)
 
-Location of car sharing vehicles by [Industry Association of German car sharing organisations](https://carsharing.de/cs-standorte)
+Location of car sharing vehicles by [Industry Association of German carsharing organizations](https://carsharing.de/cs-standorte)
 
+--
  
-
+<br>
 <div class="column">
   <img src="./bcs_weinheim.png" width ="49%">
   <img src="./bcs_balingen.png" width ="49%">
@@ -127,11 +129,52 @@ Location of car sharing vehicles by [Industry Association of German car sharing 
 
 ---
 
-## Scraper
+## Scraping framework
+
+I choose to scrape the car sharing locations (server-side).
+
+Scraping framework consists of 2 functions:
+ 1. Crawler - doing the clicking and execution of web elements using `RSelenium`
+    ```{r crawler, warning=FALSE, message=FALSE}
+    source("02_Code/01.3_outer_crawler.R", verbose = FALSE)
+    #crawl_singleregion %>% head(5)
+    ```
+ 2. Scraper - extracting the html tables with information on carsharing locations using `rvest`
+    ```{r scraper, warning=FALSE, message=FALSE}
+    source("02_Code/01.2_inner_scraper.R", verbose = FALSE)
+    #scrape_singletab %>% head(5)
+    ```
 
 
-```{r bcs, warning=FALSE, message=FALSE}
-# introduce scraper here
+---
+
+
+## Scraping results
+
+```{r scrape_setup, include=FALSE, eval=FALSE}
+source("02_Code/01.1_start_selenium.R", verbose = FALSE)
 ```
 
+```{r scrape_result, eval=FALSE}
+districts <- c("Bamberg",   # the most beautiful city in Germany
+               "Tübingen",  # my home town - nice, too
+               "Mannheim")  # well, another city in Germany
 
+purrr::walk(districts, function(district) crawl_singleregion(district) %>% select(region = district, location = standort, provider = anbieter) %>% print(n=2))
+```
+
+---
+
+## What's next?
+<input type="checkbox" checked> get **mobility information** at regional level (train stations, proximity to next highway)</input><br>
+
+<input type="checkbox" unchecked> get **demographic information** at regional level</input><br>
+
+<input type="checkbox" unchecked> get **year of market entry** of carsharing providers</input><br>
+
+<input type="checkbox" unchecked> think about **research design** (DiD?)</input><br>
+<br>
+
+--
+
+`r fa('github')` https://github.com/julienOlivier3/carsharing.git
