@@ -21,7 +21,7 @@ error_districts = c()
 district_autocomplete <- ""
 
 # Iterator object for showing crawling progress 
-id <- 0
+id <- 3165
 
 # Create vector of districts
 districts <- districts$district_clean
@@ -29,7 +29,7 @@ n_districts <- length(districts)
 
 # Loop including error handling (errors may happen because of stale elements)
 #-----------------------------------------------------------------------------
-for (district in districts){
+for (district in districts[(id):n_districts]){
   
   # Add simple progress information
   id = id + 1
@@ -100,5 +100,6 @@ carsharing_locations %>% rename(c("location" = "standort",
            as.numeric(str_replace(
              str_remove(distance_from_center, " km"),
              ",", "."))*1000) %>% 
-  write_delim(file = "01_Data//03_Carsharing_Locations//scraping_sample.txt", 
-              delim = '\t')
+  write_delim(path = "01_Data//03_Carsharing//scraping_sample.txt", 
+              delim = '\t', 
+              append=TRUE)

@@ -6,9 +6,9 @@ pacman::p_load(tidyverse, rvest, RSelenium, janitor, rlist)
 # Initialize Selenium server ----------------------------------------------
 remDr <- rsDriver(
   port = sample(x = 1:1000, size = 1),
-  browser = "firefox",
+  browser = "chrome",
   verbose = FALSE, 
-  #chromever = "92.0.4515.107"
+  chromever = "92.0.4515.107"
 )
 
 # Define landing page
