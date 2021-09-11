@@ -11,6 +11,10 @@ source("02_Code/01.2_inner_scraper.R", verbose = FALSE)
 ## Function which which does all the clicking and execution of web elements (using Selenium) to show the car sharing locations of a desired region
 crawl_singleregion <- function(district, district_autocomplete=""){
   
+  # If for some reason Selenium client is not on the correct landing page, return to it
+  bcs_landing <- "https://carsharing.de/cs-standorte-ol3-v7"
+  if(remDr$client$getCurrentUrl()[[1]]!=bcs_landing){ remDr$client$navigate(bcs_landing) }
+  
   # Find search field on the landing page in order to insert the district where carsharing offers shall be searched for
   search_field <- NULL
   while(is.null(search_field)){
@@ -170,9 +174,8 @@ mem_crawl_singleregion <- function(x) {
     }
     
     ## 2. Generate new data if cache not available
-    cat("Generating data from scratch for district =", x, "...")
+    cat("Scraping data for district =", x, "...")
     my_data = cached_crawl_singleregion(x)
-    cat("ok\n")
     
     return(my_data)
 }
