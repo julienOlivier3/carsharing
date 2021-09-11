@@ -4,8 +4,8 @@ pacman::p_load(tidyverse, rvest, RSelenium, janitor, rlist)
 
 
 # Define scraper ----------------------------------------------------------
-## Inner scraper
-# Function which extracts html table of car sharing locations given a region name
+# Inner scraper
+## Function which extracts html table of car sharing locations given a region name
 scrape_singletab <- function(html_table){
   # Extract main table information
   carsharing_tab <- html_table %>% 

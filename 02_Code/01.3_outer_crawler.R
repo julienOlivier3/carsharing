@@ -1,14 +1,14 @@
 # Setup -------------------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, rvest, RSelenium, janitor, rlist)
+pacman::p_load(tidyverse, rvest, RSelenium, janitor, rlist, memoise, here)
 
 # Load scrape_singletab() function
 source("02_Code/01.2_inner_scraper.R", verbose = FALSE)
 
 
 # Define crawler ----------------------------------------------------------
-## Outer crawler
-# Function which which does all the clicking and execution of web elements (using Selenium) to show the car sharing locations of a desired region
+# Outer crawler
+## Function which which does all the clicking and execution of web elements (using Selenium) to show the car sharing locations of a desired region
 crawl_singleregion <- function(district, district_autocomplete=""){
   
   # Find search field on the landing page in order to insert the district where carsharing offers shall be searched for
@@ -149,4 +149,30 @@ crawl_singleregion <- function(district, district_autocomplete=""){
   return(carsharing_tab)
   
   
+}
+
+# Enable caching
+## Cache directory path
+cache_dir = here("01_Data/.rcache")
+
+## Create this directory if it doesn't yet exist
+if (!dir.exists(cache_dir)) dir.create(cache_dir)
+
+mem_crawl_singleregion <- function(x) {
+  # Create cached version of crawl_singleregion
+  cached_crawl_singleregion <- memoise(crawl_singleregion, cache = cache_filesystem(cache_dir))
+  
+    ## 1. Load cached data if already generated
+    if (has_cache(cached_crawl_singleregion)(x)) {
+      cat("Loading cached data for district =", x, "\n")
+      my_data =  cached_crawl_singleregion(x)
+      return(my_data)
+    }
+    
+    ## 2. Generate new data if cache not available
+    cat("Generating data from scratch for district =", x, "...")
+    my_data = cached_crawl_singleregion(x)
+    cat("ok\n")
+    
+    return(my_data)
 }
