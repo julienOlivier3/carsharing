@@ -1,89 +1,37 @@
-source("02_Code/01.1_start_selenium.R", verbose = FALSE)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(pbapply, future, furrr, devtools)
+
+# Install development version Till's parsel package which allows parallelization  
+# to run multiple RSelenium browsers simultaneously
+# devtools::install_github("till-tietz/parsel")
+library(parsel)
+
 source("02_Code/01.3_outer_crawler.R", verbose = FALSE)
 source("02_Code/02_get_districts.R", verbose = FALSE)
 
 
-## Instantiate empty objects ...
-# ... for scraping results
-carsharing_locations <- tibble(district = character(),
-                               standort = character(), 
-                               anbieter = character(), 
-                               entfernung = character(), 
-                               standord_id = character(), 
-                               anbieter_id = character(),
-                               district_autocomplete = character(), 
-                               scale_info = character())
 
-# ... for districts where crawler run into an error
-error_districts = c()
+system.time({
+  carsharing_locations <- parsel::parscrape(
+    scrape_fun = parallel_crawl_singleregion,
+    scrape_input = districts$district_clean,
+    #ports = 1:8,
+    cores = parallel::detectCores(),
+    packages = c("RSelenium", "tidyverse", "rvest", "janitor", "rlist", "memoise", "here"),
+    browser = "firefox",
+    scrape_tries = 1)
+  parsel::close_rselenium()
+})
 
-# ... for a helper object required for the subsequent loop
-district_autocomplete <- ""
+system.time({
+  source("02_Code/01.1_start_selenium.R", verbose = FALSE)
+  source("02_Code/01.3_outer_crawler.R", verbose = FALSE)
+  carsharing_locations <- pblapply(districts$district_clean[1:662], function(district) parallel_crawl_singleregion(district)) %>% bind_rows()  
+  
+})
 
-# Iterator object for showing crawling progress 
-id <- 3165
-
-# Create vector of districts
-districts <- districts$district_clean
-n_districts <- length(districts)
-
-# Loop including error handling (errors may happen because of stale elements)
-#-----------------------------------------------------------------------------
-for (district in districts[(id):n_districts]){
-  
-  # Add simple progress information
-  id = id + 1
-  if(id%%100==0)
-    cat("Scraping progress:", round(id/n_districts, digits = 3)*100, "%")
-  
-  
-  tryCatch(
-    
-    ########################################################################
-    # Try part: define the expression(s) you want to "try"                 #
-    ########################################################################
-    
-    {
-      # Just to highlight: 
-      # If you want to use more than one R expression in the "try part" 
-      # then you'll have to use curly brackets. 
-      # Otherwise, just write the single expression you want to try and 
-      temp <- crawl_singleregion(district, district_autocomplete)
-      district_autocomplete <- unique(temp$district_autocomplete)
-      carsharing_locations <- carsharing_locations %>% 
-        add_row(temp)
-      
-    },
-    
-    ########################################################################
-    # Condition handler part: define how you want conditions to be handled #
-    ########################################################################
-    
-    # Handler when an error occurs:
-    error = function(cond) {
-      message(paste("The following district caused an error:", district))
-      message("Here's the original error message:")
-      message(paste(cond, '\n'))
-      
-      # Add districts for which scraping has not been successful to list
-      error_districts <<- c(error_districts, district)
-      
-    },
-    
-    ########################################################################
-    # Final part: define what should happen AFTER                          #
-    # everything has been tried and/or handled                             #
-    ########################################################################
-    
-    finally = {
-      message(paste("Processed district:", district))
-      #message("Some message at the end\n")
-    }
-    
-  )
-  
-  
-}
+# Look at results
+carsharing_locations$scraped_results %>% bind_rows()
 
 
 # Do some minor data cleaning before saving
