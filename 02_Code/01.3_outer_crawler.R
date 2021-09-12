@@ -51,9 +51,14 @@ crawl_singleregion <- function(district, district_autocomplete="_"){
   
   # If no district has been found given input, i.e. currentValue == "", then return an empty df
   if (currentValue==""){
-    # Parse updated html code
-    parsed_html <- read_html(remDr$getPageSource()[[1]])
-    carsharing_tab <- tibble("standort"=NA, "anbieter"=NA, "entfernung"=NA, "standord_id"=NA, "anbieter_id"=NA)
+    carsharing_tab <- tibble("district"=district, 
+                             "standort"=NA, 
+                             "anbieter"=NA, 
+                             "entfernung"=NA, 
+                             "standord_id"=NA, 
+                             "anbieter_id"=NA,
+                             "district_autocomplete"="",
+                             "scale_info"=NA)
   }
   
   # Else continue the scraping process
@@ -141,8 +146,6 @@ crawl_singleregion <- function(district, district_autocomplete="_"){
       
     }
     
-  }
-  
   # Get additional metadata:
   # Scale information from the map
   scale_info <- parsed_html %>% 
@@ -157,6 +160,7 @@ crawl_singleregion <- function(district, district_autocomplete="_"){
                              error = function(e){NULL})
     # while loop runs until search field for entering district is available
   }
+  
   district_autocomplete <- search_field$getElementAttribute("value")[[1]]
   
   carsharing_tab <- carsharing_tab %>% 
@@ -164,44 +168,24 @@ crawl_singleregion <- function(district, district_autocomplete="_"){
     add_column(district_autocomplete) %>% 
     add_column(scale_info) %>% 
     select(district, everything())
+  }
+  
+
   
   return(carsharing_tab)
   
 }
 
-# Enable caching
-## Cache directory path
-cache_dir <- here("01_Data/.rcache")
-
-## Create this directory if it doesn't yet exist
-if (!dir.exists(cache_dir)) dir.create(cache_dir)
-
+# Enable caching ----------------------------------------------------------
+## Cached version of crawl_singleregion()
 mem_crawl_singleregion <- function(x) {
   
-  # Create cached version of crawl_singleregion
-  cached_crawl_singleregion <- memoise(crawl_singleregion, cache = cache_filesystem(cache_dir))
-  
-  ## 1. Load cached data if already generated
-  if (has_cache(cached_crawl_singleregion)(x)) {
-    cat("Loading cached data for district =", x, "\n")
-    my_data =  cached_crawl_singleregion(x)
-    return(my_data)
-  }
-  
-  ## 2. Generate new data if cache not available
-  cat("Scraping data for district =", x, "...")
-  my_data = cached_crawl_singleregion(x)
-  
-  return(my_data)
-}
-
-
-parallel_crawl_singleregion <- function(x) {
-  
   # Define cache_dir inside the function
-  cache_dir <- here("01_Data/.rcache")
+  cache_dir <<- here("01_Data/.rcache")
+  ## Create this directory if it doesn't yet exist
+  if (!dir.exists(cache_dir)) dir.create(cache_dir)
   
-  # Load scrape_singletab (required for parallelization in parsel::parscrape)
+  # Load scrape_singletab (required for parallelization in parsel::parscrape())
   scrape_singletab <- function(html_table){
     # Extract main table information
     carsharing_tab <- html_table %>% 
@@ -275,7 +259,14 @@ parallel_crawl_singleregion <- function(x) {
     
     # If no district has been found given input, i.e. currentValue == "", then return an empty df
     if (currentValue==""){
-      carsharing_tab <- tibble("standort"=NA, "anbieter"=NA, "entfernung"=NA, "standord_id"=NA, "anbieter_id"=NA)
+      carsharing_tab <- tibble("district"=district, 
+                               "standort"=NA, 
+                               "anbieter"=NA, 
+                               "entfernung"=NA, 
+                               "standord_id"=NA, 
+                               "anbieter_id"=NA,
+                               "district_autocomplete"="",
+                               "scale_info"=NA)
     }
     
     # Else continue the scraping process
@@ -363,29 +354,31 @@ parallel_crawl_singleregion <- function(x) {
         
       }
       
+      # Get additional metadata:
+      # Scale information from the map
+      scale_info <- parsed_html %>% 
+        html_node("[class='ol-scale-line-inner']") %>% 
+        html_text()
+      
+      # Autocompleted district
+      search_field <- NULL
+      while(is.null(search_field)){
+        Sys.sleep(1) # sleep for a second before letting the while loop continue iterating
+        search_field <- tryCatch({remDr$findElement(using = "xpath", value = "//input[@id='edit-street-address']")},
+                                 error = function(e){NULL})
+        # while loop runs until search field for entering district is available
+      }
+      
+      district_autocomplete <- search_field$getElementAttribute("value")[[1]]
+      
+      carsharing_tab <- carsharing_tab %>% 
+        add_column(district) %>% 
+        add_column(district_autocomplete) %>% 
+        add_column(scale_info) %>% 
+        select(district, everything())
     }
     
-    # Get additional metadata:
-    # Scale information from the map
-    scale_info <- parsed_html %>% 
-      html_node("[class='ol-scale-line-inner']") %>% 
-      html_text()
     
-    # Autocompleted district
-    search_field <- NULL
-    while(is.null(search_field)){
-      Sys.sleep(1) # sleep for a second before letting the while loop continue iterating
-      search_field <- tryCatch({remDr$findElement(using = "xpath", value = "//input[@id='edit-street-address']")},
-                               error = function(e){NULL})
-      # while loop runs until search field for entering district is available
-    }
-    district_autocomplete <- search_field$getElementAttribute("value")[[1]]
-    
-    carsharing_tab <- carsharing_tab %>% 
-      add_column(district) %>% 
-      add_column(district_autocomplete) %>% 
-      add_column(scale_info) %>% 
-      select(district, everything())
     
     return(carsharing_tab)
     
@@ -399,7 +392,7 @@ parallel_crawl_singleregion <- function(x) {
       return(my_data)
     }
     
-    ## 2. Generate new data if cache not available
+    ## 2. Scrape new data if cache not available
     cat("Scraping data for district =", x, "...")
     my_data = cached_crawl_singleregion(x)
     
