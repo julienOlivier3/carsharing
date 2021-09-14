@@ -21,11 +21,12 @@ districts <- districts %>%
 # URL of bcs allows the insertion of geocodes
 # e.g.: https://carsharing.de/cs-standorte-ol3-v7?field_geofield_distance%5Bdistance%5D=10&update_lat=49.88&update_lon=10.89
 
+# usethis::edit_r_environ() 
 # register_google(key = Sys.getenv("GOOGLE_MAPS_API_KEY"))
-# districts <- districts %>% 
-#   mutate_geocode(district_clean, output = "more")
-# 
-# districts %>% 
-#   write_delim(path = "01_Data//05_Geodata//german_districts_geodata.txt", 
-#             delim = '\t', 
-#             append=FALSE)
+districts <- districts %>% 
+  mutate_geocode(district_clean, output = "more")
+
+districts %>% 
+   write_delim(file = "01_Data/05_Geodata/german_districts_geodata.txt", 
+             delim = '\t', 
+             append=FALSE)

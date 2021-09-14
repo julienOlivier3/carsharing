@@ -1,13 +1,12 @@
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse)
 
+carsharing_locations <- read_delim(file = "01_Data/03_Carsharing/scraping_sample.txt", delim = '\t')
 
-carsharing_locaions <- read_delim(file = "01_Data/03_Carsharing_Locations/scraping_sample.txt", delim = '\t')
+length(unique(carsharing_locations$provider))
+length(unique(carsharing_locations$provider_id))
 
-length(unique(carsharing_locaions$provider))
-length(unique(carsharing_locaions$provider_id))
-
-carsharing_districts <- carsharing_locaions %>% 
+carsharing_districts <- carsharing_locations %>% 
   filter(!is.na(provider)) %>% 
   distinct(district, provider)
 
