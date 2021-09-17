@@ -24,14 +24,19 @@ system.time({
     scrape_tries = 1)
 })
 
+# Look at results
+carsharing_locations$scraped_results %>% bind_rows()
+
+
+
 system.time({
-  #source("02_Code/01.1_start_selenium.R", verbose = FALSE)
+  source("02_Code/01.1_start_selenium.R", verbose = FALSE)
   carsharing_locations <- pblapply(districts$district_clean[!(districts$district_clean %in% districts_done)], function(district) mem_crawl_singleregion(district)) %>% bind_rows()  
   
 })
 
 # Look at results
-carsharing_locations$scraped_results %>% bind_rows()
+carsharing_locations
 
 
 # Do some minor data cleaning before saving
@@ -48,6 +53,6 @@ carsharing_locations %>% rename(c("location" = "standort",
            as.numeric(str_replace(
              str_remove(distance_from_center, " km"),
              ",", "."))*1000) %>% 
-  write_delim(path = "01_Data//03_Carsharing//scraping_sample.txt", 
+  write_delim(file = "01_Data//03_Carsharing//scraping_sample.txt", 
               delim = '\t', 
               append=TRUE)

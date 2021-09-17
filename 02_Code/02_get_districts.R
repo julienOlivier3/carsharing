@@ -23,10 +23,10 @@ districts <- districts %>%
 
 # usethis::edit_r_environ() 
 # register_google(key = Sys.getenv("GOOGLE_MAPS_API_KEY"))
-districts <- districts %>% 
-  mutate_geocode(district_clean, output = "more")
+#districts <- districts %>% 
+#  mutate_geocode(district_clean, output = "more")
 
-districts %>% 
-   write_delim(file = "01_Data/05_Geodata/german_districts_geodata.txt", 
-             delim = '\t', 
-             append=FALSE)
+#districts %>% 
+#   write_delim(file = "01_Data/05_Geodata/german_districts_geodata.txt", 
+#             delim = '\t', 
+#             append=FALSE)

@@ -6,22 +6,22 @@ id	provider
 5	Car Sharing Wendlingen
 6	stadtmobil Karlsruhe
 7	Die Stromer e.V.
-8	TeilAuto SchwÃ¤bisch Hall
+8	TeilAuto Schwäbisch Hall
 9	Gemeinschaft Tempelhof
 10	stadtmobil Rhein-Neckar
-11	Stadtmobil CarSharing SÃ¼dbaden
+11	Stadtmobil CarSharing Südbaden
 12	my-e-car
 13	Car-Sharing Breisach-Ihringen
-14	Car-Sharing ZweitÃ¤lerland
+14	Car-Sharing Zweitälerland
 15	carsharing lahr
 16	Autoteiler Konstanz
 17	teilAuto Carsharing Neckar-Alb
-18	teilAuto MÃ¶ssingen
+18	teilAuto Mössingen
 19	conficars
 20	teilAuto Biberach
 21	OberSchwabenMobil Ravensburg
 22	scouter
-23	STATTAUTO MÃ¼nchen
+23	STATTAUTO München
 24	Movio Carsharing
 25	STATTAUTO Isarwinkel
 26	Ebersberger Autoteiler
@@ -33,21 +33,21 @@ id	provider
 32	Vaterstettener Auto-Teiler
 33	CarSharing Erding
 34	StadtTeilAuto Freising
-35	Ã–koMobil
-36	CarSharing DieÃŸen e.V.
+35	ÖkoMobil
+36	CarSharing Dießen e.V.
 37	CarSharing Schondorf
 38	CarSharing Utting e.V.
 39	immer mobil
-40	KÃ¶nigsbrunner Auto-Teiler
+40	Königsbrunner Auto-Teiler
 41	Bad Endorfer AutoTeiler
-42	Ã¼berall carsharing
+42	überall carsharing
 43	Wasserburger Autoteiler
 44	ps-sharing
 45	Carsharing Traunstein
 46	Autoteilen Landshut
 47	CarSharing Passau
 48	das Stadtwerk.Earl
-49	Ã–kobil Bamberg
+49	Ökobil Bamberg
 50	BayreuthMobil
 51	AUTOparat
 52	CarSharing Muhr
@@ -71,8 +71,8 @@ id	provider
 70	Stattauto Kassel
 71	Meck Schweizer Carsharing
 72	YourCar Rostock
-73	Stadt-teil-Auto GÃ¶ttingen
-74	GrÃ¼nes Auto GÃ¶ttingen
+73	Stadt-teil-Auto Göttingen
+74	Grünes Auto Göttingen
 75	stadtmobil Hannover
 76	DORF-FLITZER
 77	cambio Hamburg-Metropolregion
@@ -87,10 +87,21 @@ id	provider
 86	Stattauto Bonn
 87	Flexicar
 88	cambio Aachen
-89	Stadtteilauto Carsharing MÃ¼nster
+89	Stadtteilauto Carsharing Münster
 90	Teilautos
 91	cambio Bielefeld
 92	Stattauto Detmold
 93	Willmobil Carsharing
 94	Statt-Auto Herdecke
 95	teilAuto Koblenz
+96	stadtmobil Trier
+97	Emil E-Mobility in Lautern
+98	UrStromMobil
+99	RH Mobil
+100	cambio Saarbrücken
+101	teilAuto
+102	Auto Teilen in Halberstadt
+103	cambio Flensburg
+104	StattAuto
+105	StattAuto / CAR.LOS!
+106	mobeno
