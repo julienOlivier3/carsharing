@@ -2,7 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+*.ipynb_checkpoints
 carsharing.Rproj
 03_Presentation/libs
 03_Presentation/short_presentation_cache
 01_Data/.rcache
+01_Data/03_Carsharing/02_BCS_Archived
