@@ -10,9 +10,10 @@ Gathering the data requires me to setup a scraping framework to collect informat
 To-Do:
 - [x] Find a way to handle errors due to stale elements in Selenium. -> Solved for now by adding additonal sleep times after executing elements with Selenium.
 - [ ] Contact the guys at the Federal Motor Transport Authority and check whether they provide data on the number of **newly registered** and **deregistered** cars also on the district (German: Gemeinde) level. So far, I could only find the **stock** of cars at this level of granularity.
-- [ ] Use the Mannheim Enterprise Panel (MUP) to find out when (which year) the regional carsharing providers entered into the market.
+- [x] Use the Mannheim Enterprise Panel (MUP) to find out when (which year) the regional carsharing providers entered into the market.
 - [x] Get mobility information (trail station exists, if exists size of trail station, ...) for districts.
 - [ ] Get demographic information (population tec.) for districts.
+- [ ] Get geocodes for the carsharing locations (try geocoder module in Python with osm provider)
 
 Presentation:
 
